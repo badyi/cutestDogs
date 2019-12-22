@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y3g-gv-eoc">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,88 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="cutestDogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradientView" customModule="cutestDogs" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDb-rL-QdT">
+                                <rect key="frame" x="162" y="405" width="90" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="86" id="3ky-qM-tZf"/>
+                                    <constraint firstAttribute="width" secondItem="nDb-rL-QdT" secondAttribute="height" multiplier="1:1" constant="4" id="jvH-hZ-6kN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="83" id="uOc-Hj-W2g"/>
+                                </constraints>
+                                <state key="normal" title="Show Breeds"/>
+                                <connections>
+                                    <segue destination="w2w-iA-qvu" kind="show" id="hZO-1b-vco"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nDb-rL-QdT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ORy-sg-Ioi"/>
+                            <constraint firstItem="nDb-rL-QdT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pga-Aq-5za"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="77o-U9-SXF"/>
+                    <connections>
+                        <outlet property="MyView" destination="8bC-Xf-vdC" id="AgT-cM-KNU"/>
+                        <outlet property="showBreedsButton" destination="nDb-rL-QdT" id="Wla-Tx-hOO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="121.875"/>
+        </scene>
+        <!--Breeds List View Controller-->
+        <scene sceneID="wdw-8s-rwK">
+            <objects>
+                <viewController id="w2w-iA-qvu" customClass="BreedsListViewController" customModule="cutestDogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q3g-zR-7UM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uHD-bu-w75">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="67X-gS-9U5" firstAttribute="bottom" secondItem="uHD-bu-w75" secondAttribute="bottom" id="Od9-Mq-0uf"/>
+                            <constraint firstItem="uHD-bu-w75" firstAttribute="top" secondItem="67X-gS-9U5" secondAttribute="top" id="fBl-WV-IHG"/>
+                            <constraint firstItem="uHD-bu-w75" firstAttribute="leading" secondItem="67X-gS-9U5" secondAttribute="leading" id="orG-da-JgB"/>
+                            <constraint firstItem="67X-gS-9U5" firstAttribute="trailing" secondItem="uHD-bu-w75" secondAttribute="trailing" id="psb-mh-grm"/>
+                            <constraint firstItem="uHD-bu-w75" firstAttribute="top" secondItem="67X-gS-9U5" secondAttribute="top" id="uTr-fd-Ilk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="67X-gS-9U5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mnk-Sg-uau"/>
+                    <connections>
+                        <outlet property="tableView" destination="uHD-bu-w75" id="JL5-ti-YLH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3W-Jo-yq9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eoN-ru-IxV">
+            <objects>
+                <navigationController id="Y3g-gv-eoc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sPX-c1-lSL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="afg-JB-Cku"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FaD-SN-1zQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="122"/>
         </scene>
     </scenes>
 </document>

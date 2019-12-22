@@ -7,23 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7955177C23ABF94100C8167A /* ResourceNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7994638623ABF57C00B09ACD /* ResourceNetworking.framework */; };
+		7955177D23ABF94100C8167A /* ResourceNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7994638623ABF57C00B09ACD /* ResourceNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		797CA22623AB7CCD00AC6874 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CA22523AB7CCD00AC6874 /* AppDelegate.swift */; };
-		797CA22823AB7CCD00AC6874 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CA22723AB7CCD00AC6874 /* SceneDelegate.swift */; };
 		797CA22A23AB7CCD00AC6874 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CA22923AB7CCD00AC6874 /* ViewController.swift */; };
 		797CA22D23AB7CCD00AC6874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797CA22B23AB7CCD00AC6874 /* Main.storyboard */; };
 		797CA22F23AB7CD400AC6874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 797CA22E23AB7CD400AC6874 /* Assets.xcassets */; };
 		797CA23223AB7CD400AC6874 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797CA23023AB7CD400AC6874 /* LaunchScreen.storyboard */; };
+		797CA24923AB892700AC6874 /* UIColor+Hec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CA24823AB892700AC6874 /* UIColor+Hec.swift */; };
+		797CA24B23AB893B00AC6874 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CA24A23AB893B00AC6874 /* GradientView.swift */; };
+		797CA24E23AB93A300AC6874 /* BreedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CA24D23AB93A300AC6874 /* BreedsListViewController.swift */; };
+		7994637D23ABEC8A00B09ACD /* DogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7994637B23ABEC8A00B09ACD /* DogTableViewCell.swift */; };
+		7994637E23ABEC8A00B09ACD /* DogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7994637C23ABEC8A00B09ACD /* DogTableViewCell.xib */; };
+		7994638C23ABF5A400B09ACD /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7994638B23ABF5A400B09ACD /* Dog.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7994638523ABF57C00B09ACD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7994638023ABF57C00B09ACD /* ResourceNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 844E18E9238D4B1100D6F38B;
+			remoteInfo = ResourceNetworking;
+		};
+		7994638723ABF57C00B09ACD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7994638023ABF57C00B09ACD /* ResourceNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 844E18F2238D4B1100D6F38B;
+			remoteInfo = ResourceNetworkingTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7955177E23ABF94100C8167A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7955177D23ABF94100C8167A /* ResourceNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		797CA22223AB7CCD00AC6874 /* cutestDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cutestDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797CA22523AB7CCD00AC6874 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		797CA22723AB7CCD00AC6874 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		797CA22923AB7CCD00AC6874 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		797CA22C23AB7CCD00AC6874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		797CA22E23AB7CD400AC6874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		797CA23123AB7CD400AC6874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		797CA23323AB7CD400AC6874 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		797CA24823AB892700AC6874 /* UIColor+Hec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hec.swift"; sourceTree = "<group>"; };
+		797CA24A23AB893B00AC6874 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		797CA24D23AB93A300AC6874 /* BreedsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListViewController.swift; sourceTree = "<group>"; };
+		7994637B23ABEC8A00B09ACD /* DogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewCell.swift; sourceTree = "<group>"; };
+		7994637C23ABEC8A00B09ACD /* DogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogTableViewCell.xib; sourceTree = "<group>"; };
+		7994638023ABF57C00B09ACD /* ResourceNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResourceNetworking.xcodeproj; path = cutestDogs/ResourceNetworking/ResourceNetworking.xcodeproj; sourceTree = "<group>"; };
+		7994638B23ABF5A400B09ACD /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7955177C23ABF94100C8167A /* ResourceNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +85,10 @@
 		797CA21923AB7CCD00AC6874 = {
 			isa = PBXGroup;
 			children = (
+				7994638023ABF57C00B09ACD /* ResourceNetworking.xcodeproj */,
 				797CA22423AB7CCD00AC6874 /* cutestDogs */,
 				797CA22323AB7CCD00AC6874 /* Products */,
+				7994638923ABF58F00B09ACD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +103,60 @@
 		797CA22423AB7CCD00AC6874 /* cutestDogs */ = {
 			isa = PBXGroup;
 			children = (
+				7994638D23ABF5A900B09ACD /* Model */,
+				7994637623AB98B400B09ACD /* CustomCell */,
+				797CA24C23AB899600AC6874 /* CustomViewAndColor */,
 				797CA22523AB7CCD00AC6874 /* AppDelegate.swift */,
-				797CA22723AB7CCD00AC6874 /* SceneDelegate.swift */,
-				797CA22923AB7CCD00AC6874 /* ViewController.swift */,
 				797CA22B23AB7CCD00AC6874 /* Main.storyboard */,
+				797CA22923AB7CCD00AC6874 /* ViewController.swift */,
+				797CA24D23AB93A300AC6874 /* BreedsListViewController.swift */,
 				797CA22E23AB7CD400AC6874 /* Assets.xcassets */,
 				797CA23023AB7CD400AC6874 /* LaunchScreen.storyboard */,
 				797CA23323AB7CD400AC6874 /* Info.plist */,
 			);
 			path = cutestDogs;
+			sourceTree = "<group>";
+		};
+		797CA24C23AB899600AC6874 /* CustomViewAndColor */ = {
+			isa = PBXGroup;
+			children = (
+				797CA24A23AB893B00AC6874 /* GradientView.swift */,
+				797CA24823AB892700AC6874 /* UIColor+Hec.swift */,
+			);
+			path = CustomViewAndColor;
+			sourceTree = "<group>";
+		};
+		7994637623AB98B400B09ACD /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				7994637B23ABEC8A00B09ACD /* DogTableViewCell.swift */,
+				7994637C23ABEC8A00B09ACD /* DogTableViewCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		7994638123ABF57C00B09ACD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7994638623ABF57C00B09ACD /* ResourceNetworking.framework */,
+				7994638823ABF57C00B09ACD /* ResourceNetworkingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7994638923ABF58F00B09ACD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7994638D23ABF5A900B09ACD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7994638B23ABF5A400B09ACD /* Dog.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +169,7 @@
 				797CA21E23AB7CCD00AC6874 /* Sources */,
 				797CA21F23AB7CCD00AC6874 /* Frameworks */,
 				797CA22023AB7CCD00AC6874 /* Resources */,
+				7955177E23ABF94100C8167A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,12 +206,35 @@
 			mainGroup = 797CA21923AB7CCD00AC6874;
 			productRefGroup = 797CA22323AB7CCD00AC6874 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7994638123ABF57C00B09ACD /* Products */;
+					ProjectRef = 7994638023ABF57C00B09ACD /* ResourceNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				797CA22123AB7CCD00AC6874 /* cutestDogs */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7994638623ABF57C00B09ACD /* ResourceNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResourceNetworking.framework;
+			remoteRef = 7994638523ABF57C00B09ACD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7994638823ABF57C00B09ACD /* ResourceNetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResourceNetworkingTests.xctest;
+			remoteRef = 7994638723ABF57C00B09ACD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		797CA22023AB7CCD00AC6874 /* Resources */ = {
@@ -128,6 +244,7 @@
 				797CA23223AB7CD400AC6874 /* LaunchScreen.storyboard in Resources */,
 				797CA22F23AB7CD400AC6874 /* Assets.xcassets in Resources */,
 				797CA22D23AB7CCD00AC6874 /* Main.storyboard in Resources */,
+				7994637E23ABEC8A00B09ACD /* DogTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797CA24E23AB93A300AC6874 /* BreedsListViewController.swift in Sources */,
+				7994638C23ABF5A400B09ACD /* Dog.swift in Sources */,
 				797CA22A23AB7CCD00AC6874 /* ViewController.swift in Sources */,
+				7994637D23ABEC8A00B09ACD /* DogTableViewCell.swift in Sources */,
+				797CA24923AB892700AC6874 /* UIColor+Hec.swift in Sources */,
+				797CA24B23AB893B00AC6874 /* GradientView.swift in Sources */,
 				797CA22623AB7CCD00AC6874 /* AppDelegate.swift in Sources */,
-				797CA22823AB7CCD00AC6874 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,6 +408,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A66RHWUZQK;
 				INFOPLIST_FILE = cutestDogs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A66RHWUZQK;
 				INFOPLIST_FILE = cutestDogs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var MyView: GradientView!
+    
+    @IBOutlet weak var showBreedsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        MyView.beginColor = UIColor(hexString: "#DB7093")
+        MyView.endColor = UIColor.white
+        showBreedsButton.setTitleColor(UIColor(hexString: "#FF69B4"), for: .normal)
     }
-
-
 }
 

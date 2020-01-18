@@ -23,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		79704B7923D3455B00AB5434 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7994638023ABF57C00B09ACD /* ResourceNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 844E18E8238D4B1100D6F38B;
+			remoteInfo = ResourceNetworking;
+		};
 		7994638523ABF57C00B09ACD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7994638023ABF57C00B09ACD /* ResourceNetworking.xcodeproj */;
@@ -174,6 +181,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				79704B7A23D3455B00AB5434 /* PBXTargetDependency */,
 			);
 			name = cutestDogs;
 			productName = cutestDogs;
@@ -266,6 +274,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79704B7A23D3455B00AB5434 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResourceNetworking;
+			targetProxy = 79704B7923D3455B00AB5434 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		797CA22B23AB7CCD00AC6874 /* Main.storyboard */ = {

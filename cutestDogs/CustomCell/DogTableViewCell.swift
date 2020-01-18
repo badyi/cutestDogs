@@ -19,7 +19,7 @@ class DogTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func config(with dog: DogView){
+    func config(with dog: DogView) {
         CellLabel.text = dog.breed + " " + dog.subBreed
         icon.image = dog.icon
         if dog.icon == nil {

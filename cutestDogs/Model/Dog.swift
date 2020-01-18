@@ -9,7 +9,7 @@
 import UIKit
 import ResourceNetworking
 
-class ServerDog{
+class ServerDog {
     let breed : String
     let subBreed : String
     
@@ -19,12 +19,12 @@ class ServerDog{
     }
 }
 
-protocol DogViewDelegate{
+protocol DogViewDelegate {
     func iconDidLoaded(for dog: DogView)
     //func urlDidLoaded(for dog: DogView)
 }
 
-struct Dogs : Codable{
+struct Dogs : Codable {
     let message : Dictionary<String, [String]>
     let status: String
     
@@ -34,7 +34,7 @@ struct Dogs : Codable{
     }
 }
 
-struct ImageURL : Codable{
+struct ImageURL : Codable {
     let message : String
     let status : String
 }
@@ -47,7 +47,6 @@ class DogView {
     var isDisplayed : Bool
     var delegate : DogViewDelegate?
     var cancel: Cancellation?
-    
     var iconUrl: String?
     
     private(set) var icon: UIImage? {
@@ -71,11 +70,12 @@ extension DogView: Equatable {
 
 extension DogView {
     func loadImageIfNeeded(with helper: NetworkHelper) {
-        if (iconUrl == nil){
+        if (iconUrl == nil) {
             return
         }
         if icon != nil || cancel != nil { return }
         guard let resource = ResourceFactory().createImageResource(for: iconUrl!) else { return }
+        
         cancel = helper.load(resource: resource, completion: { [weak self]
             result in
             switch result {
@@ -88,18 +88,19 @@ extension DogView {
         })
     }
     
-    func loadImgURL(networkHelper: NetworkHelper){
-        if (iconUrl != nil){ self.loadImageIfNeeded(with: networkHelper); return }
-        guard let resource = ResourceFactory().getImgURL(breed: self.breed,subbreed: self.subBreed) else {print(-1); return}
+    func loadImgURL(networkHelper: NetworkHelper) {
+        if (iconUrl != nil) {
+            return }
+        guard let resource = ResourceFactory().getImgURL(breed: self.breed,subbreed: self.subBreed) else { print(-1); return }
+        
         _ = networkHelper.load(resource: resource, completion: {[weak self] result in
-            switch result{
+            switch result {
             case let .success(ImageUrl):
                 let url = ImageUrl.message
                 self?.iconUrl = url
-                self?.loadImageIfNeeded(with: networkHelper)
             case .failure(let error):
                 print(error)
-        }
+            }
         })
     }
     
@@ -116,9 +117,11 @@ class ResourceFactory {
     
     func getImgURL(breed: String, subbreed: String) -> Resource<ImageURL>? {
         var urlString = "https://dog.ceo/api/breed/" + breed + "/"
+        
         if subbreed != "" {
            urlString = urlString + subbreed + "/"
         }
+        
         urlString = urlString + "images/random"
         
         guard let url = URL(string: urlString) else {

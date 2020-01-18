@@ -14,7 +14,7 @@ class FakeReachability: ReachabilityProtocol {
 }
 
 class BreedsListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     let semaphore = DispatchSemaphore(value: 1)
@@ -36,43 +36,43 @@ class BreedsListViewController: UIViewController {
         tableView.register(UINib(nibName: "DogTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.breedCell)
         
         _ = networkHelper.load(resource: ResourceFactory().createResource()) { [weak self] result in
-            switch result{
+            switch result {
             case let .success(dogs):
-                self?.BreedsDictionary = dogs.message
+                guard let self = self else { return }
+                self.BreedsDictionary = dogs.message
                 
                 for i in dogs.message {
-                    self?.breeds.append(i.key)
+                    self.breeds.append(i.key)
                 }
                 
-                for i in self!.BreedsDictionary{
+                for i in self.BreedsDictionary {
                     var tempDogViews : [DogView] = []
                     
                     if i.value.count == 0 {
                         let serverDog = ServerDog(breed: i.key, subBreed: "")
-                            let dogView = DogView(dog: serverDog, networkHelper: self!.networkHelper)
-                            dogView.delegate = self
-                            tempDogViews.append(dogView)
-                     } else {
+                        let dogView = DogView(dog: serverDog, networkHelper: self.networkHelper)
+                        dogView.delegate = self
+                        tempDogViews.append(dogView)
+                    } else {
                         for j in i.value {
                             let serverDog = ServerDog(breed: i.key, subBreed: j)
-                                let dogView = DogView(dog: serverDog, networkHelper: self!.networkHelper)
-                                dogView.delegate = self
-                                tempDogViews.append(dogView)
+                            let dogView = DogView(dog: serverDog, networkHelper: self.networkHelper)
+                            dogView.delegate = self
+                            tempDogViews.append(dogView)
                         }
                     }
-                    self?.dogViewDictionary[i.key] = tempDogViews
+                    self.dogViewDictionary[i.key] = tempDogViews
                     DispatchQueue.main.async {
-                        self?.tableView.reloadData()
+                        self.tableView.reloadData()
                     }
                 }
             default:
                 break
             }
         }
+        tableView.reloadData()
     }
 }
-
-
 
 extension BreedsListViewController: UITableViewDataSource {
     
@@ -81,34 +81,37 @@ extension BreedsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if let count =  dogViewDictionary[breeds[section]]?.count{
-                return count
-            }
+        if let dogViewsSection =  dogViewDictionary[breeds[section]] {
+            let count = dogViewsSection.count
+            return count
+        }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dog = dogViewDictionary[breeds[indexPath.section]]![indexPath.row]
         let cell =  tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.breedCell) as! DogTableViewCell
-        cell.config(with: dog)
+        
+        if let dogViewsSections = dogViewDictionary[breeds[indexPath.section]] {
+            let dogView = dogViewsSections[indexPath.row]
+            cell.config(with: dogView)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-
 }
 
 extension BreedsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            let dogView = self.dogViewDictionary[self.breeds[indexPath.section]]![indexPath.row]
-            dogView.loadImgURL(networkHelper: networkHelper)
+        let dogView = self.dogViewDictionary[self.breeds[indexPath.section]]?[indexPath.row]
+        //dogView?.loadImgURL(networkHelper: networkHelper)
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let dogView = dogViewDictionary[breeds[indexPath.section]]![indexPath.row]
-        dogView.cancelLoadImage()
+        let dogView = dogViewDictionary[breeds[indexPath.section]]?[indexPath.row]
+        dogView?.cancelLoadImage()
     }
 }
 
@@ -118,7 +121,6 @@ extension BreedsListViewController {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let frame : CGRect = tableView.frame
         
         let headerView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
@@ -130,16 +132,17 @@ extension BreedsListViewController {
         headerView.addSubview(label)
         
         return headerView;
-        
     }
 }
 
 extension BreedsListViewController: DogViewDelegate{
     func iconDidLoaded(for dog: DogView) {
-        guard let row = dogViewDictionary[dog.breed]?.firstIndex(of: dog) else {return}
+        guard let section = breeds.firstIndex(of: dog.breed) else { return }
+        guard let row = dogViewDictionary[dog.breed]?.firstIndex(of: dog) else { return }
         DispatchQueue.main.async {
             [weak self] in
-            self?.tableView.reloadRows(at: [IndexPath(row: row, section: self!.breeds.firstIndex(of: dog.breed)!)], with: .automatic)
+            self?.tableView.reloadRows(at: [IndexPath(row: row, section: section)], with: .none)
         }
     }
 }
+

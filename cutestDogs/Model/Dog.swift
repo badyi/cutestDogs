@@ -21,7 +21,7 @@ class ServerDog {
 
 protocol DogViewDelegate {
     func iconDidLoaded(for dog: DogView)
-    //func urlDidLoaded(for dog: DogView)
+    func urlDidLoaded(for dog: DogView)
 }
 
 struct Dogs : Codable {
@@ -44,10 +44,14 @@ class DogView {
     
     let breed: String
     let subBreed : String
-    var isDisplayed : Bool
     var delegate : DogViewDelegate?
     var cancel: Cancellation?
-    var iconUrl: String?
+    
+    var iconUrl: String? {
+        didSet {
+            delegate?.urlDidLoaded(for: self)
+        }
+    }
     
     private(set) var icon: UIImage? {
         didSet {
@@ -58,7 +62,6 @@ class DogView {
     init(dog: ServerDog, networkHelper: NetworkHelper) {
         breed = dog.breed
         subBreed = dog.subBreed
-        isDisplayed = true
     }
 }
 
@@ -91,7 +94,7 @@ extension DogView {
     func loadImgURL(networkHelper: NetworkHelper) {
         if (iconUrl != nil) {
             return }
-        guard let resource = ResourceFactory().getImgURL(breed: self.breed,subbreed: self.subBreed) else { print(-1); return }
+        guard let resource = ResourceFactory().getImgURL(breed: self.breed,subbreed: self.subBreed) else { return }
         
         _ = networkHelper.load(resource: resource, completion: {[weak self] result in
             switch result {

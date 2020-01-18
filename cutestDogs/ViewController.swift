@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyView.beginColor = UIColor(hexString: "#DB7093")
-        MyView.endColor = UIColor.white
+        MyView.beginColor = UIColor.black//UIColor(hexString: "#DB7093")
+        MyView.endColor = UIColor.black
         showBreedsButton.setTitleColor(UIColor(hexString: "#FF69B4"), for: .normal)
     }
 }

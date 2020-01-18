@@ -106,7 +106,7 @@ extension BreedsListViewController: UITableViewDataSource {
 extension BreedsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let dogView = self.dogViewDictionary[self.breeds[indexPath.section]]?[indexPath.row]
-        //dogView?.loadImgURL(networkHelper: networkHelper)
+        dogView?.loadImgURL(networkHelper: networkHelper)
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -143,6 +143,9 @@ extension BreedsListViewController: DogViewDelegate{
             [weak self] in
             self?.tableView.reloadRows(at: [IndexPath(row: row, section: section)], with: .none)
         }
+    }
+    func urlDidLoaded(for dog: DogView) {
+        dog.loadImageIfNeeded(with: networkHelper)
     }
 }
 
